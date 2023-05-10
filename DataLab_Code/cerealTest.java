@@ -35,11 +35,17 @@ public class cerealTest {
             } catch (Exception e) { System.out.println("Error reading or parsing childrensbooksearly1900s.txt" + e); }
         }
 
-        Cereal HundredBran = new Cereal("100% Bran", 6, 68.402);
-        System.out.println(HundredBran);
+        
+        Cereal maxSugar = new Cereal("filler", 0, 0.0);
+
         for (Cereal cereal: cerealArrayList) {
-            System.out.println(cereal);
+            //System.out.println(cereal);
+            if (cereal.getSugar() >= maxSugar.getSugar()) {
+                maxSugar = cereal;
+            }
         }
+
+        System.out.println("Cereal with largest sugar content is " + maxSugar.getName() + " with " + maxSugar.getSugar() + " grams of sugar.");
     
     }
 }
